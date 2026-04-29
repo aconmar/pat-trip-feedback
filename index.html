@@ -7,7 +7,6 @@
 <meta name="theme-color" content="#fbf6ed">
 <title>Pat's Trip Dashboard</title>
 <style>
-  /* === Pat's preference: larger fonts, mix of warm/journal + bold/adventure === */
   :root {
     --cream:    #fbf6ed;
     --paper:    #ffffff;
@@ -36,526 +35,115 @@
     line-height: 1.6;
   }
 
-  /* === Top hero === */
   .hero {
     padding: 36px 24px 28px;
     text-align: center;
     background: linear-gradient(180deg, var(--cream) 0%, var(--muted-bg) 100%);
     border-bottom: 1px solid var(--rule);
   }
-  .hero .eyebrow {
-    color: var(--teal);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .hero h1 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 1.15;
-    color: var(--teal-2);
-    margin: 0 0 10px;
-    letter-spacing: -0.01em;
-  }
-  .hero .subtitle {
-    color: var(--ink-soft);
-    font-size: 18px;
-    margin: 0 0 20px;
-  }
-  .countdown {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
-    background: var(--paper);
-    padding: 10px 22px;
-    border-radius: 99px;
-    border: 1.5px solid var(--rule);
-    box-shadow: var(--shadow);
-    font-size: 17px;
-  }
-  .countdown .num {
-    font-family: Georgia, serif;
-    font-weight: 700;
-    color: var(--teal);
-    font-size: 24px;
-  }
-  .countdown .label {
-    color: var(--ink-soft);
-  }
+  .hero .eyebrow { color: var(--teal); font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px; }
+  .hero h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; font-size: 36px; line-height: 1.15; color: var(--teal-2); margin: 0 0 10px; letter-spacing: -0.01em; }
+  .hero .subtitle { color: var(--ink-soft); font-size: 18px; margin: 0 0 20px; }
+  .countdown { display: inline-flex; align-items: baseline; gap: 8px; background: var(--paper); padding: 10px 22px; border-radius: 99px; border: 1.5px solid var(--rule); box-shadow: var(--shadow); font-size: 17px; }
+  .countdown .num { font-family: Georgia, serif; font-weight: 700; color: var(--teal); font-size: 24px; }
+  .countdown .label { color: var(--ink-soft); }
 
-  /* === Quick nav === */
-  .nav-strip {
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-    padding: 14px 16px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    box-shadow: var(--shadow);
+  .updates-banner {
+    background: linear-gradient(135deg, #ebf3ee, #e0eee5);
+    border: 1.5px solid #b8d6c2;
+    border-left: 4px solid var(--green);
+    padding: 16px 22px;
+    border-radius: 12px;
+    margin: 22px 0;
   }
-  .nav-inner {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .nav-pill {
-    background: var(--cream);
-    color: var(--teal-2);
-    border: 1.5px solid var(--rule);
-    padding: 9px 16px;
-    border-radius: 99px;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    white-space: nowrap;
-    transition: all 0.15s;
-  }
-  .nav-pill:hover, .nav-pill:active {
-    background: var(--teal);
-    color: white;
-    border-color: var(--teal);
-  }
-  .nav-pill.urgent {
-    background: var(--gold);
-    color: white;
-    border-color: var(--gold);
-  }
+  .updates-banner .ub-label { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .updates-banner .ub-h { font-family: Georgia, serif; font-size: 19px; color: var(--teal-2); margin: 0 0 8px; font-weight: 600; }
+  .updates-banner ul { margin: 6px 0 0 0; padding-left: 22px; font-size: 16px; line-height: 1.55; color: var(--ink); }
+  .updates-banner ul li { margin-bottom: 4px; }
 
-  /* === Main content === */
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 28px 22px 80px;
-  }
-  section {
-    margin-bottom: 44px;
-    scroll-margin-top: 80px;
-  }
-  section h2 {
-    font-family: Georgia, serif;
-    font-weight: 600;
-    font-size: 30px;
-    color: var(--teal-2);
-    margin: 0 0 8px;
-    letter-spacing: -0.01em;
-  }
-  section .lede {
-    font-size: 18px;
-    color: var(--ink-soft);
-    margin: 0 0 22px;
-    line-height: 1.55;
-  }
+  .nav-strip { background: var(--paper); border-bottom: 1px solid var(--rule); padding: 14px 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow); }
+  .nav-inner { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+  .nav-pill { background: var(--cream); color: var(--teal-2); border: 1.5px solid var(--rule); padding: 9px 16px; border-radius: 99px; text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap; transition: all 0.15s; }
+  .nav-pill:hover, .nav-pill:active { background: var(--teal); color: white; border-color: var(--teal); }
+  .nav-pill.urgent { background: var(--gold); color: white; border-color: var(--gold); }
 
-  /* === Status badges === */
-  .status-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin: 18px 0 0;
-  }
-  @media (min-width: 600px) {
-    .status-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-  .status-card {
-    background: var(--paper);
-    border-radius: 14px;
-    padding: 18px 20px;
-    border: 1.5px solid var(--rule);
-    box-shadow: var(--shadow);
-  }
-  .status-card .badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 99px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+  .container { max-width: 780px; margin: 0 auto; padding: 28px 22px 80px; }
+  section { margin-bottom: 44px; scroll-margin-top: 80px; }
+  section h2 { font-family: Georgia, serif; font-weight: 600; font-size: 30px; color: var(--teal-2); margin: 0 0 8px; letter-spacing: -0.01em; }
+  section .lede { font-size: 18px; color: var(--ink-soft); margin: 0 0 22px; line-height: 1.55; }
+
+  .status-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 18px 0 0; }
+  @media (min-width: 600px) { .status-grid { grid-template-columns: repeat(3, 1fr); } }
+  .status-card { background: var(--paper); border-radius: 14px; padding: 18px 20px; border: 1.5px solid var(--rule); box-shadow: var(--shadow); }
+  .status-card .badge { display: inline-block; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
   .badge.green { background: #e8f3eb; color: var(--green); }
   .badge.amber { background: #faedd1; color: var(--amber); }
   .badge.red   { background: #fce6e3; color: var(--red); }
-  .status-card .h3 {
-    font-family: Georgia, serif;
-    font-size: 20px;
-    color: var(--teal-2);
-    font-weight: 600;
-    margin: 0 0 4px;
-  }
-  .status-card .p {
-    color: var(--ink-soft);
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0;
-  }
+  .status-card .h3 { font-family: Georgia, serif; font-size: 20px; color: var(--teal-2); font-weight: 600; margin: 0 0 4px; }
+  .status-card .p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; margin: 0; }
 
-  /* === Insurance cards === */
-  .insurance-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    margin: 22px 0;
-  }
-  @media (min-width: 700px) {
-    .insurance-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  .ins-card {
-    background: var(--paper);
-    border-radius: 16px;
-    padding: 22px 22px 20px;
-    border: 2px solid var(--rule);
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: all 0.18s ease;
-    position: relative;
-  }
+  .insurance-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 22px 0; }
+  @media (min-width: 700px) { .insurance-grid { grid-template-columns: repeat(2, 1fr); } }
+  .ins-card { background: var(--paper); border-radius: 16px; padding: 22px 22px 20px; border: 2px solid var(--rule); box-shadow: var(--shadow); cursor: pointer; transition: all 0.18s ease; position: relative; }
   .ins-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-  .ins-card.selected {
-    border-color: var(--teal);
-    background: var(--selected);
-    box-shadow: var(--shadow-l);
-  }
-  .ins-card.selected::before {
-    content: "✓ Selected";
-    position: absolute;
-    top: -10px;
-    right: 16px;
-    background: var(--teal);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 4px 11px;
-    border-radius: 99px;
-  }
-  .ins-card.placeholder {
-    background: var(--muted-bg);
-    border-style: dashed;
-  }
-  .ins-card .name {
-    font-family: Georgia, serif;
-    font-weight: 600;
-    font-size: 22px;
-    color: var(--teal-2);
-    margin: 0 0 4px;
-    letter-spacing: -0.01em;
-  }
-  .ins-card .tagline {
-    color: var(--ink-soft);
-    font-size: 15px;
-    margin: 0 0 14px;
-  }
-  .ins-card .price {
-    font-family: Georgia, serif;
-    font-size: 28px;
-    color: var(--gold);
-    font-weight: 700;
-    margin: 0 0 4px;
-  }
-  .ins-card .price .small {
-    font-size: 16px;
-    color: var(--ink-soft);
-    font-weight: 400;
-  }
-  .ins-card .price-note {
-    font-size: 13px;
-    color: var(--ink-soft);
-    font-style: italic;
-    margin-bottom: 14px;
-  }
-  .ins-card ul.specs {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid var(--rule);
-    padding-top: 14px;
-  }
-  .ins-card ul.specs li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 6px 0;
-    font-size: 15px;
-    border-bottom: 1px dashed var(--rule);
-  }
+  .ins-card.selected { border-color: var(--teal); background: var(--selected); box-shadow: var(--shadow-l); }
+  .ins-card.selected::before { content: "✓ Selected"; position: absolute; top: -10px; right: 16px; background: var(--teal); color: white; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 11px; border-radius: 99px; }
+  .ins-card.placeholder { background: var(--muted-bg); border-style: dashed; }
+  .ins-card .name { font-family: Georgia, serif; font-weight: 600; font-size: 22px; color: var(--teal-2); margin: 0 0 4px; letter-spacing: -0.01em; }
+  .ins-card .tagline { color: var(--ink-soft); font-size: 15px; margin: 0 0 14px; }
+  .ins-card .price { font-family: Georgia, serif; font-size: 28px; color: var(--gold); font-weight: 700; margin: 0 0 4px; }
+  .ins-card .price .small { font-size: 16px; color: var(--ink-soft); font-weight: 400; }
+  .ins-card .price-note { font-size: 13px; color: var(--ink-soft); font-style: italic; margin-bottom: 14px; }
+  .ins-card ul.specs { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); padding-top: 14px; }
+  .ins-card ul.specs li { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; font-size: 15px; border-bottom: 1px dashed var(--rule); }
   .ins-card ul.specs li:last-child { border-bottom: none; }
   .ins-card ul.specs li .label-text { color: var(--ink-soft); }
   .ins-card ul.specs li .value { color: var(--ink); font-weight: 600; text-align: right; }
   .ins-card ul.specs li .value.green { color: var(--green); }
   .ins-card ul.specs li .value.amber { color: var(--amber); }
   .ins-card ul.specs li .value.red   { color: var(--red); }
-  .ins-card .footnote {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid var(--rule);
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
+  .ins-card .footnote { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
 
-  /* === Medicare callout === */
-  .callout {
-    background: linear-gradient(135deg, #f4ecd8, #f0e6cf);
-    border: 1.5px solid var(--rule);
-    border-left: 4px solid var(--teal);
-    border-radius: 12px;
-    padding: 20px 22px;
-    margin: 22px 0;
-  }
-  .callout .label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 8px;
-  }
-  .callout .h3 {
-    font-family: Georgia, serif;
-    font-size: 19px;
-    color: var(--teal-2);
-    margin: 0 0 8px;
-    font-weight: 600;
-  }
-  .callout p {
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.55;
-    margin: 6px 0 0;
-  }
+  .callout { background: linear-gradient(135deg, #f4ecd8, #f0e6cf); border: 1.5px solid var(--rule); border-left: 4px solid var(--teal); border-radius: 12px; padding: 20px 22px; margin: 22px 0; }
+  .callout .label { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .callout .h3 { font-family: Georgia, serif; font-size: 19px; color: var(--teal-2); margin: 0 0 8px; font-weight: 600; }
+  .callout p { font-size: 16px; color: var(--ink); line-height: 1.55; margin: 6px 0 0; }
 
-  /* === Travel plan timeline === */
-  .timeline {
-    margin: 22px 0;
-  }
-  .leg {
-    display: flex;
-    gap: 16px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--rule);
-  }
+  .timeline { margin: 22px 0; }
+  .leg { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
   .leg:last-child { border-bottom: none; }
-  .leg .when {
-    flex: 0 0 90px;
-    color: var(--teal);
-    font-weight: 700;
-    font-size: 15px;
-  }
-  .leg .when .date {
-    font-family: Georgia, serif;
-    font-size: 18px;
-    color: var(--teal-2);
-    display: block;
-  }
-  .leg .what {
-    flex: 1;
-  }
-  .leg .what h4 {
-    font-family: Georgia, serif;
-    margin: 0 0 4px;
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .leg .what p {
-    margin: 0 0 6px;
-    color: var(--ink-soft);
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .leg.new::before {
-    content: "Updated";
-    position: relative;
-    display: inline-block;
-    background: var(--coral);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 99px;
-    margin-bottom: 6px;
-  }
+  .leg .when { flex: 0 0 90px; color: var(--teal); font-weight: 700; font-size: 15px; }
+  .leg .when .date { font-family: Georgia, serif; font-size: 18px; color: var(--teal-2); display: block; }
+  .leg .what { flex: 1; }
+  .leg .what h4 { font-family: Georgia, serif; margin: 0 0 4px; font-size: 19px; font-weight: 600; color: var(--ink); }
+  .leg .what p { margin: 0 0 6px; color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
+  .leg .what .detail { display: block; margin-top: 8px; padding: 10px 14px; background: var(--cream); border-left: 3px solid var(--rule); border-radius: 6px; font-size: 15px; color: var(--ink); line-height: 1.5; }
+  .leg .what .detail strong { color: var(--teal-2); }
+  .leg .what .pending { display: inline-block; background: #fff7e6; border: 1px solid #f0d28e; color: var(--gold); padding: 2px 8px; border-radius: 99px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+  .leg .what .verified { display: inline-block; background: #e8f3eb; color: var(--green); padding: 2px 8px; border-radius: 99px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+  .leg.new .what h4::before { content: "Updated · "; color: var(--coral); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
 
-  /* === Question box (tap-to-respond inline) === */
-  .qbox {
-    background: var(--paper);
-    border: 1.5px solid var(--rule);
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin: 16px 0;
-    box-shadow: var(--shadow);
-  }
-  .qbox .qlabel {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .qbox .qtext {
-    font-family: Georgia, serif;
-    font-size: 19px;
-    color: var(--teal-2);
-    font-weight: 600;
-    margin: 0 0 10px;
-    line-height: 1.4;
-  }
-  .qbox .qhelp {
-    color: var(--ink-soft);
-    font-size: 16px;
-    margin: 0 0 14px;
-    line-height: 1.5;
-  }
-  .qbox textarea {
-    width: 100%;
-    min-height: 90px;
-    border: 2px solid var(--rule);
-    border-radius: 10px;
-    background: var(--cream);
-    padding: 12px 14px;
-    font-family: inherit;
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.5;
-    resize: vertical;
-    -webkit-appearance: none;
-    appearance: none;
-    transition: border-color 0.18s ease;
-  }
-  .qbox textarea:focus {
-    outline: none;
-    border-color: var(--teal);
-    background: var(--paper);
-  }
-  .qbox .options-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  @media (min-width: 600px) {
-    .qbox .options-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .qbox .opt-btn {
-    background: var(--cream);
-    border: 1.5px solid var(--rule);
-    padding: 12px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 16px;
-    text-align: left;
-    color: var(--ink);
-    transition: all 0.15s;
-  }
+  .qbox { background: var(--paper); border: 1.5px solid var(--rule); border-radius: 14px; padding: 20px 22px; margin: 16px 0; box-shadow: var(--shadow); }
+  .qbox .qlabel { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .qbox .qtext { font-family: Georgia, serif; font-size: 19px; color: var(--teal-2); font-weight: 600; margin: 0 0 10px; line-height: 1.4; }
+  .qbox .qhelp { color: var(--ink-soft); font-size: 16px; margin: 0 0 14px; line-height: 1.5; }
+  .qbox textarea { width: 100%; min-height: 90px; border: 2px solid var(--rule); border-radius: 10px; background: var(--cream); padding: 12px 14px; font-family: inherit; font-size: 17px; color: var(--ink); line-height: 1.5; resize: vertical; -webkit-appearance: none; appearance: none; transition: border-color 0.18s ease; }
+  .qbox textarea:focus { outline: none; border-color: var(--teal); background: var(--paper); }
+  .qbox .options-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 12px; }
+  @media (min-width: 600px) { .qbox .options-grid { grid-template-columns: 1fr 1fr; } }
+  .qbox .opt-btn { background: var(--cream); border: 1.5px solid var(--rule); padding: 12px 14px; border-radius: 10px; cursor: pointer; font-family: inherit; font-size: 16px; text-align: left; color: var(--ink); transition: all 0.15s; }
   .qbox .opt-btn:hover { border-color: var(--gold); }
-  .qbox .opt-btn.selected {
-    background: var(--selected);
-    border-color: var(--teal);
-    font-weight: 600;
-    color: var(--teal-2);
-  }
+  .qbox .opt-btn.selected { background: var(--selected); border-color: var(--teal); font-weight: 600; color: var(--teal-2); }
 
-  /* === Send section === */
-  .send-section {
-    background: linear-gradient(135deg, #f4ecd8, #ebe1c8);
-    border-radius: 16px;
-    padding: 28px 24px;
-    margin: 32px 0 0;
-    text-align: center;
-  }
-  .send-section h2 {
-    font-family: Georgia, serif;
-    color: var(--teal-2);
-    margin: 0 0 10px;
-    font-size: 26px;
-  }
-  .send-section p {
-    color: var(--ink-soft);
-    font-size: 17px;
-    line-height: 1.55;
-    max-width: 480px;
-    margin: 0 auto 18px;
-  }
-  .send-btn {
-    background: var(--teal);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 99px;
-    font-family: inherit;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(45, 90, 74, 0.3);
-    transition: all 0.18s;
-  }
-  .send-btn:hover, .send-btn:active {
-    background: var(--teal-2);
-    transform: translateY(-1px);
-  }
-  .voice-line {
-    margin-top: 22px;
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.5;
-  }
+  .send-section { background: linear-gradient(135deg, #f4ecd8, #ebe1c8); border-radius: 16px; padding: 28px 24px; margin: 32px 0 0; text-align: center; }
+  .send-section h2 { font-family: Georgia, serif; color: var(--teal-2); margin: 0 0 10px; font-size: 26px; }
+  .send-section p { color: var(--ink-soft); font-size: 17px; line-height: 1.55; max-width: 480px; margin: 0 auto 18px; }
+  .send-btn { background: var(--teal); color: white; border: none; padding: 16px 32px; border-radius: 99px; font-family: inherit; font-size: 18px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(45, 90, 74, 0.3); transition: all 0.18s; }
+  .send-btn:hover, .send-btn:active { background: var(--teal-2); transform: translateY(-1px); }
+  .voice-line { margin-top: 22px; color: var(--ink-soft); font-size: 15px; line-height: 1.5; }
   .voice-line strong { color: var(--gold); }
-
-  /* === Footer === */
-  footer {
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-    color: var(--ink-soft);
-    font-size: 14px;
-    font-style: italic;
-    border-top: 1px solid var(--rule);
-  }
-
-  /* === Helpers === */
-  .empty-link {
-    color: var(--teal);
-    text-decoration: underline;
-    font-weight: 600;
-  }
-  .urgent-badge {
-    display: inline-block;
-    background: var(--coral);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 99px;
-    vertical-align: middle;
-    margin-left: 8px;
-  }
-  .draft-banner {
-    background: #fff7e6;
-    border: 1px solid #f0d28e;
-    border-left: 4px solid var(--gold);
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 15px;
-    color: var(--ink);
-    margin: 14px 0;
-  }
-  .draft-banner strong { color: var(--gold); }
+  footer { margin-top: 40px; padding: 20px; text-align: center; color: var(--ink-soft); font-size: 14px; font-style: italic; border-top: 1px solid var(--rule); }
+  .urgent-badge { display: inline-block; background: var(--coral); color: white; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 99px; vertical-align: middle; margin-left: 8px; }
 </style>
 </head>
 <body>
@@ -563,7 +151,7 @@
 <div class="hero">
   <div class="eyebrow">Claude Concierge</div>
   <h1>Pat's Trip Dashboard</h1>
-  <p class="subtitle">Africa, the Reeds, the Markhams — and your million-mile moment</p>
+  <p class="subtitle">Africa, the Markhams, the Reeds — and your million-mile moment</p>
   <div class="countdown">
     <span class="num" id="daysLeft">61</span>
     <span class="label">days until departure (Sun, Jun 28)</span>
@@ -582,29 +170,45 @@
 
 <div class="container">
 
+  <div class="updates-banner">
+    <div class="ub-label">Heard you, Pat — updates from your 10:44 PM message</div>
+    <div class="ub-h">Five corrections made tonight</div>
+    <ul>
+      <li><strong>Kruger lodging</strong> — removed Sabi Sabi reference. Banie's group has Jul 9-16 covered.</li>
+      <li><strong>Heathrow → Norwich</strong> — corrected to <em>National Express coach</em>, not flight (per your 2023 trip).</li>
+      <li><strong>UK dates updated</strong> — Norwich Jul 18 (arrive PM) → 3 full days Jul 19/20/21 → Loganair Wed Jul 22 → Inverness Jul 22-28 → BA back Jul 29 PM → hotel → UA17 Jul 30.</li>
+      <li><strong>Cabin clarified</strong> — Polaris IS your premium business class on all 4 international flights. First class on US domestic. No "all-vs-hybrid" question. Removed.</li>
+      <li><strong>Newark Marriott Jul 16-17</strong> — guaranteed early check-in restored to the timeline detail.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="label">Verifying overnight — ready by tomorrow morning</div>
+    <div class="h3">What's still pending</div>
+    <p>Specific flight numbers, departure/arrival times, and current Polaris/First fares need to come from the United and BA sites. I'm verifying tonight and updating this dashboard before you wake up. Anything marked <span class="pending" style="display:inline-block;">verifying</span> will turn into <span class="verified" style="display:inline-block;">verified</span> with concrete numbers in the morning.</p>
+    <p>Insurance comparison and the structural plan are good to review now.</p>
+  </div>
+
   <!-- === STATUS === -->
   <section id="status">
     <h2>Where things stand</h2>
-    <p class="lede">Three big buckets, color-coded. Tap any urgent item below to jump to it.</p>
+    <p class="lede">Three big buckets, color-coded. Tap any urgent item to jump to it.</p>
 
     <div class="status-grid">
       <div class="status-card">
         <span class="badge green">Locked ✓</span>
-        <div class="h3">Africa safari</div>
-        <p class="p">Mmilo Tours — Vic Falls, South Luangwa, Kafue. Both park fees prepaid. Proflight tickets included.<br>
-        Balance ZAR 44,606 due <strong>Thu May 21</strong>.</p>
+        <div class="h3">Africa Jun 28 – Jul 16</div>
+        <p class="p">Mmilo safari Jul 1-9 (paid deposit, balance May 21). Kruger Jul 12-16 handled by Banie's group.</p>
       </div>
-
       <div class="status-card">
         <span class="badge red">Decide today</span>
         <div class="h3">Travel insurance</div>
-        <p class="p">Pre-existing condition waiver requires purchase by <strong>Fri May 1</strong>. Comparison below — three options ready, fourth is verifying.</p>
+        <p class="p">Pre-existing waiver requires purchase by <strong>Fri May 1</strong>. Three options ready below; fourth is yours to name.</p>
       </div>
-
       <div class="status-card">
-        <span class="badge amber">In flight</span>
-        <div class="h3">UK plan + bookings</div>
-        <p class="p">Norwich first now (3 days), then Inverness (4-5). UA flights on hold 24h per your request. New plan below.</p>
+        <span class="badge amber">Verifying</span>
+        <div class="h3">Flights + UK plan</div>
+        <p class="p">Structural plan reflects your 10:44 PM corrections. Specific flight times &amp; prices verified overnight.</p>
       </div>
     </div>
   </section>
@@ -612,23 +216,20 @@
   <!-- === INSURANCE === -->
   <section id="insurance">
     <h2>Insurance comparison <span class="urgent-badge">May 1 deadline</span></h2>
-    <p class="lede">Side-by-side of the four options you asked for. Tap your pick at the bottom — it'll go straight to me.</p>
+    <p class="lede">Side-by-side of the four options you asked for. Pick at the bottom — it goes straight to me.</p>
 
-    <!-- Medicare context -->
     <div class="callout">
-      <div class="label">Medicare context, in plain English</div>
+      <div class="label">Medicare context — from your call today</div>
       <div class="h3">Original Medicare A &amp; B does NOT cover routine medical care abroad.</div>
-      <p>Per your call today, Medicare will only reimburse foreign medical bills in narrow exceptions, and <strong>does not pay for any medical evacuation</strong>. The job of trip insurance here is twofold: (1) cover medical care you receive abroad while you're abroad, and (2) get you flown home if anything serious happens — at which point your Medicare A &amp; B + Anthem will pay normally for U.S. care.</p>
-      <p>That makes <strong>medical evacuation back to the U.S.</strong> the single most important coverage to confirm in any plan you pick.</p>
+      <p>Per your call, Medicare reimburses foreign bills only in narrow exceptions and <strong>does not pay for any medical evacuation</strong>. The job of trip insurance here is twofold: (1) pay for medical care abroad while you're abroad, and (2) get you flown home — at which point your Medicare A &amp; B + Anthem will pay normally for U.S. care.</p>
+      <p>That makes <strong>medical evacuation back to the U.S.</strong> the single most important coverage line in any plan.</p>
     </div>
 
-    <!-- Insurance cards -->
     <div class="insurance-grid">
 
-      <!-- IMG SE -->
       <div class="ins-card" data-ins="img_se" onclick="pickIns(this)">
         <div class="name">IMG iTravelInsured SE</div>
-        <div class="tagline">High-coverage primary plan, generous evacuation</div>
+        <div class="tagline">High-coverage primary plan</div>
         <div class="price">~$1,506 <span class="small">+ Medjet $315</span></div>
         <div class="price-note">verified on imglobal.com for your trip</div>
         <ul class="specs">
@@ -644,7 +245,6 @@
         <p class="footnote"><strong>Why "primary" matters:</strong> primary plans pay first, so you don't have to bill Medicare/Anthem and wait for denial before the insurer pays.</p>
       </div>
 
-      <!-- Travel Guard -->
       <div class="ins-card" data-ins="travel_guard" onclick="pickIns(this)">
         <div class="name">Travel Guard Preferred</div>
         <div class="tagline">Strong coverage at a lower price</div>
@@ -656,17 +256,16 @@
           <li><span class="label-text">Emergency reunion</span><span class="value">$1,000</span></li>
           <li><span class="label-text">Trip cancellation</span><span class="value green">100% trip cost</span></li>
           <li><span class="label-text">Trip interruption</span><span class="value">150% trip cost</span></li>
-          <li><span class="label-text">Pre-existing waiver</span><span class="value green">Yes — buy within 15 days of deposit</span></li>
+          <li><span class="label-text">Pre-existing waiver</span><span class="value green">Yes — within 15 days of deposit</span></li>
           <li><span class="label-text">Primary or secondary</span><span class="value amber">SECONDARY</span></li>
           <li><span class="label-text">Age 71 eligibility</span><span class="value green">Yes</span></li>
         </ul>
         <p class="footnote"><strong>Trade-off:</strong> ~$490 cheaper than IMG, but lower medical &amp; evacuation caps, and "secondary" means it pays after Medicare denies — paperwork burden.</p>
       </div>
 
-      <!-- Allianz -->
       <div class="ins-card" data-ins="allianz" onclick="pickIns(this)">
         <div class="name">Allianz OneTrip Premier</div>
-        <div class="tagline">Recommended by your friend Anne — large familiar brand</div>
+        <div class="tagline">Recommended by your friend Anne</div>
         <div class="price">~$870 <span class="small">+ Medjet $315</span></div>
         <div class="price-note">indicative — needs final quote at allianztravelinsurance.com</div>
         <ul class="specs">
@@ -675,40 +274,37 @@
           <li><span class="label-text">Emergency reunion</span><span class="value">$1,500</span></li>
           <li><span class="label-text">Trip cancellation</span><span class="value green">100% trip cost</span></li>
           <li><span class="label-text">Trip interruption</span><span class="value">150% trip cost</span></li>
-          <li><span class="label-text">Pre-existing waiver</span><span class="value green">Yes — buy within 14 days of deposit</span></li>
+          <li><span class="label-text">Pre-existing waiver</span><span class="value green">Yes — within 14 days of deposit</span></li>
           <li><span class="label-text">Primary or secondary</span><span class="value amber">SECONDARY</span></li>
           <li><span class="label-text">Age 71 eligibility</span><span class="value green">Yes</span></li>
         </ul>
-        <p class="footnote"><strong>Trade-off:</strong> cheapest option, big trusted brand, strong customer service reputation. Same med-evac as IMG, but lower medical cap and secondary payor.</p>
+        <p class="footnote"><strong>Trade-off:</strong> cheapest option, big trusted brand, strong customer service. Same med-evac cap as IMG, but lower medical and secondary payor.</p>
       </div>
 
-      <!-- 4th — placeholder -->
       <div class="ins-card placeholder">
         <div class="name">Anne's other recommendation?</div>
         <div class="tagline">I have Allianz from her — what was the second one?</div>
-        <p style="margin: 14px 0; font-size: 16px; color: var(--ink-soft); line-height: 1.5;">Your iMessage mentioned two recommendations from Anne. I have <strong>Allianz</strong> for sure. The second came through as text I couldn't read — possibly Generali, Seven Corners, Travelex, or something else. Tell me below and I'll have a verified comparison ready for you in the morning.</p>
+        <p style="margin: 14px 0; font-size: 16px; color: var(--ink-soft); line-height: 1.5;">Your iMessage mentioned two recommendations from Anne. I have <strong>Allianz</strong> for sure. The second came through as text I couldn't read — possibly Generali, Seven Corners, Travelex, or something else. Tell me below and I'll have a verified comparison ready in the morning.</p>
         <textarea id="anne4th" placeholder="The other company Anne mentioned was..." style="width: 100%; min-height: 60px; border: 1.5px dashed #c8b890; border-radius: 10px; background: rgba(255,255,255,0.6); padding: 12px 14px; font-family: inherit; font-size: 16px; resize: vertical; -webkit-appearance: none;"></textarea>
       </div>
 
     </div>
 
-    <!-- Medjet explainer -->
     <div class="callout">
       <div class="label">About Medjet — pairs with all of the above</div>
       <div class="h3">Medjet Annual Membership · ~$315</div>
-      <p>Pure medical evacuation membership. <strong>The crucial difference:</strong> regular trip insurance evacuation only flies you to the "nearest acceptable facility." Medjet flies you back to <strong>any U.S. hospital you choose</strong>, no questions about medical necessity. For your case (Medicare only pays in the U.S.), that's exactly what you need. <strong>Annual</strong> tier required — your trip is 33 days; their Short-Term tops out at 30.</p>
+      <p>Pure medical evacuation membership. <strong>The crucial difference:</strong> regular trip insurance evacuation only flies you to the "nearest acceptable facility." Medjet flies you back to <strong>any U.S. hospital you choose</strong>, no questions about medical necessity. Given Medicare only pays in the U.S., that's exactly what you need. <strong>Annual</strong> tier required — your trip is 33 days; their Short-Term tops out at 30.</p>
     </div>
 
-    <!-- Pat picks -->
     <div class="qbox">
       <div class="qlabel">Tap your pick</div>
-      <div class="qtext">Which insurance plan do you want me to book?</div>
-      <p class="qhelp">Pick whichever feels right. Tap "Send my pick" at the bottom of the page when you're done.</p>
+      <div class="qtext">Which insurance plan should I book?</div>
+      <p class="qhelp">Pick whichever feels right. Tap "Send my pick" at the bottom when you're done.</p>
       <div class="options-grid">
         <button class="opt-btn" onclick="pickAns('insurance', 'img_se', this)">IMG iTravelInsured SE + Medjet (~$1,820)</button>
         <button class="opt-btn" onclick="pickAns('insurance', 'travel_guard', this)">Travel Guard Preferred + Medjet (~$1,330)</button>
         <button class="opt-btn" onclick="pickAns('insurance', 'allianz', this)">Allianz OneTrip Premier + Medjet (~$1,185)</button>
-        <button class="opt-btn" onclick="pickAns('insurance', 'wait_anne', this)">Wait — I want Anne's 4th recommendation in the mix first</button>
+        <button class="opt-btn" onclick="pickAns('insurance', 'wait_anne', this)">Wait — I want Anne's 4th option in the mix first</button>
         <button class="opt-btn" onclick="pickAns('insurance', 'phone_call', this)">Call me — I want to talk it through with Alex on the line</button>
       </div>
       <textarea id="ins_text" placeholder="Anything else on insurance? Type here…"></textarea>
@@ -717,19 +313,26 @@
 
   <!-- === TRAVEL PLAN === -->
   <section id="travel">
-    <h2>Updated travel plan</h2>
-    <p class="lede">Reflects Fiona's news — UK is now Norwich first, then Inverness. Africa unchanged. Flights NOT booked yet.</p>
-
-    <div class="draft-banner"><strong>Holding</strong> on the UA flight booking until you confirm: (a) insurance pick above, (b) all-Polaris vs hybrid (Polaris JNB + Premium Plus LHR), (c) you're happy with the dates below.</div>
+    <h2>Travel plan with your corrections</h2>
+    <p class="lede">Reflects your 10:44 PM message: Banie handles Kruger, Heathrow → Norwich is a coach (not a flight), updated UK dates, all Polaris on internationals + First on domestic.</p>
 
     <div class="timeline">
 
       <div class="leg">
         <div class="when"><span class="date">Jun 28</span>Sun</div>
         <div class="what">
-          <h4>SMF → Newark, then Newark → Johannesburg</h4>
-          <p>Connecting flight in Newark, ~3 hour layover. Polaris on UA 188 (787-9 Dreamliner, lie-flat).</p>
-          <p style="font-size: 14px; color: var(--gold);">Two SMF → EWR options worth comparing — see "Quick questions" below.</p>
+          <h4>Sacramento → Newark</h4>
+          <p>UA flight in <strong>First class</strong>. Aiming for a not-too-early SMF departure with comfortable buffer in Newark before your evening UA 188 to Joburg.</p>
+          <span class="pending">verifying flight # &amp; times</span>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="when"><span class="date">Jun 28</span>evening</div>
+        <div class="what">
+          <h4>Newark → Johannesburg</h4>
+          <p><strong>UA 188</strong> in <strong>Polaris</strong> (premium business, lie-flat) on a 787-9 Dreamliner.</p>
+          <span class="pending">verifying current Polaris fare</span>
         </div>
       </div>
 
@@ -737,15 +340,17 @@
         <div class="when"><span class="date">Jul 1</span>Wed</div>
         <div class="what">
           <h4>JNB → Livingstone (Vic Falls)</h4>
-          <p>Airlink 4Z482 — already ticketed. Banie's group joins.</p>
+          <p>Airlink 4Z482 — already ticketed (conf Y9ABNJ, seat 3F).</p>
+          <span class="verified">ticketed</span>
         </div>
       </div>
 
       <div class="leg">
         <div class="when"><span class="date">Jul 1–9</span></div>
         <div class="what">
-          <h4>Mmilo Safari ✓ Locked</h4>
+          <h4>Mmilo Safari with Banie's group</h4>
           <p>Vic Falls Waterfront → Track &amp; Trail (S Luangwa) → Pinnon (Kafue). All park fees and Proflights included.</p>
+          <span class="verified">deposit paid · balance May 21</span>
         </div>
       </div>
 
@@ -753,15 +358,16 @@
         <div class="when"><span class="date">Jul 9</span>Thu</div>
         <div class="what">
           <h4>Lusaka → Johannesburg</h4>
-          <p>Zambia Airways ZN307 — already ticketed.</p>
+          <p>Zambia Airways ZN307 — already ticketed (conf YDHXGT, seat 12A).</p>
+          <span class="verified">ticketed</span>
         </div>
       </div>
 
       <div class="leg">
         <div class="when"><span class="date">Jul 9–16</span></div>
         <div class="what">
-          <h4>Kruger window — currently planning Sabi Sabi or Lukimbi</h4>
-          <p>Quote requested from Sabi Sabi Earth Lodge (single supp waived). Stand by.</p>
+          <h4>Kruger — handled by Banie's group</h4>
+          <p>Per your message: Banie's group has the Kruger lodging arranged. I'm not booking anything here.</p>
         </div>
       </div>
 
@@ -769,56 +375,81 @@
         <div class="when"><span class="date">Jul 16</span>Thu</div>
         <div class="what">
           <h4>Johannesburg → Newark</h4>
-          <p>Polaris on UA 187 (787-9). Overnight at Newark Marriott.</p>
-        </div>
-      </div>
-
-      <div class="leg new">
-        <div class="when"><span class="date">Jul 17</span>Fri</div>
-        <div class="what">
-          <h4>Newark → Heathrow → Norwich</h4>
-          <p>Polaris on UA 14 (767-300ER, 1-1-1 Polaris). Connecting flight Heathrow → Norwich same day or BA hop next morning — I'll show options once you confirm the new routing.</p>
-        </div>
-      </div>
-
-      <div class="leg new">
-        <div class="when"><span class="date">Jul 18–20</span></div>
-        <div class="what">
-          <h4>Norwich with the Markhams</h4>
-          <p>3 full days to recover from the long flight (per your request). Margot, Tony, the gang.</p>
-        </div>
-      </div>
-
-      <div class="leg new">
-        <div class="when"><span class="date">Jul 21</span>Tue</div>
-        <div class="what">
-          <h4>Norwich → Aberdeen → Inverness</h4>
-          <p>Aiming for late-morning or early-afternoon Loganair NWI → ABZ. Fiona &amp; Iain pick up at Aberdeen.</p>
-          <p style="font-size: 14px; color: var(--gold);">I'll lock the exact flight once you greenlight Norwich-first.</p>
-        </div>
-      </div>
-
-      <div class="leg new">
-        <div class="when"><span class="date">Jul 21–25</span></div>
-        <div class="what">
-          <h4>Inverness with Fiona &amp; Gremlin</h4>
-          <p>4-5 days (per your request).</p>
-        </div>
-      </div>
-
-      <div class="leg new">
-        <div class="when"><span class="date">Jul 25 or 26</span></div>
-        <div class="what">
-          <h4>Inverness → Heathrow (BA, afternoon/early evening)</h4>
-          <p>Hilton Garden Inn Heathrow T2 overnight. Open question on luggage through-checking — see "Quick questions."</p>
+          <p><strong>UA 187</strong> in <strong>Polaris</strong> on a 787-9. Departs JNB evening, arrives Newark morning of Jul 17.</p>
+          <span class="pending">verifying current Polaris fare</span>
         </div>
       </div>
 
       <div class="leg">
-        <div class="when"><span class="date">Jul 26 or 27</span></div>
+        <div class="when"><span class="date">Jul 17</span>Fri</div>
         <div class="what">
-          <h4>Heathrow → Newark → Sacramento</h4>
-          <p>Polaris on UA 17 (767-300ER). <strong>This is your million-mile crossing flight.</strong> 🎉</p>
+          <h4>Newark Marriott — guaranteed early check-in &amp; rest</h4>
+          <p>Arrive Newark morning. Go straight to the Marriott Newark Airport. Guaranteed early check-in (booked at the time of the room reservation). Rest, unwind, then evening departure for the overnight flight to Heathrow.</p>
+          <span class="pending">hotel reservation pending</span>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="when"><span class="date">Jul 17</span>evening</div>
+        <div class="what">
+          <h4>Newark → Heathrow</h4>
+          <p><strong>UA 14</strong> in <strong>Polaris</strong> on a 767-300ER (1-1-1 layout — every seat is an aisle, odd-row windows have great views).</p>
+          <span class="pending">verifying current Polaris fare</span>
+        </div>
+      </div>
+
+      <div class="leg new">
+        <div class="when"><span class="date">Jul 18</span>Sat</div>
+        <div class="what">
+          <h4>Heathrow → Norwich (National Express coach)</h4>
+          <p>Per your 2023 experience — coach from the closest LHR terminal to your UA arrival (Terminal 2). Aiming for a daytime coach so you arrive Norwich afternoon/early evening.</p>
+          <span class="pending">verifying coach schedule + booking</span>
+        </div>
+      </div>
+
+      <div class="leg new">
+        <div class="when"><span class="date">Jul 19–21</span></div>
+        <div class="what">
+          <h4>Norwich with the Markhams — 3 full days</h4>
+          <p>Margot, Tony, the gang.</p>
+        </div>
+      </div>
+
+      <div class="leg new">
+        <div class="when"><span class="date">Jul 22</span>Wed</div>
+        <div class="what">
+          <h4>Norwich → Aberdeen → Inverness</h4>
+          <p>Loganair NWI → ABZ, late morning or early afternoon. Fiona &amp; Iain meet at Aberdeen, drive to Inverness.</p>
+          <span class="pending">verifying Loganair schedule + fare</span>
+        </div>
+      </div>
+
+      <div class="leg new">
+        <div class="when"><span class="date">Jul 22–28</span></div>
+        <div class="what">
+          <h4>Inverness with Fiona, Iain &amp; Gremlin — 5-6 days</h4>
+          <p>The big chunk of the UK leg.</p>
+        </div>
+      </div>
+
+      <div class="leg new">
+        <div class="when"><span class="date">Jul 29</span>Wed</div>
+        <div class="what">
+          <h4>Inverness → Heathrow (BA, late afternoon)</h4>
+          <p>Hilton Garden Inn Heathrow Terminal 2 overnight, ready for UA17 the next morning.</p>
+          <span class="pending">verifying BA schedule + fare</span>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="when"><span class="date">Jul 30</span>Thu</div>
+        <div class="what">
+          <h4>Heathrow → Newark → Sacramento (your million-mile day 🎉)</h4>
+          <p><strong>UA 17</strong> LHR → EWR in Polaris on a 767-300ER. <strong>This is the flight you cross 1,000,000 lifetime miles.</strong></p>
+          <p>Then EWR → SMF — two options you flagged:</p>
+          <span class="detail"><strong>Option A:</strong> 11:25 AM EWR → DEN, arriving SMF 5:41 PM. One stop, daytime.</span>
+          <span class="detail"><strong>Option B:</strong> 1:00 PM EWR → SFO → SMF, arriving 7:35 PM. Two stops, longer day.</span>
+          <span class="pending">verifying current First fares + comfort comparison</span>
         </div>
       </div>
 
@@ -826,67 +457,49 @@
 
     <div class="qbox">
       <div class="qlabel">Confirm</div>
-      <div class="qtext">Does the new Norwich-first UK plan look right?</div>
-      <p class="qhelp">Anything to adjust on dates, flight times, durations? Tap, then optionally type a note.</p>
+      <div class="qtext">Does this updated plan look right?</div>
+      <p class="qhelp">I'll fill in the verified flight numbers and prices overnight. Anything to adjust on the structure?</p>
       <div class="options-grid">
-        <button class="opt-btn" onclick="pickAns('uk_plan', 'looks_good', this)">Looks great — book it</button>
-        <button class="opt-btn" onclick="pickAns('uk_plan', 'tweaks', this)">Mostly good, but tweaks needed (I'll explain below)</button>
-        <button class="opt-btn" onclick="pickAns('uk_plan', 'questions', this)">I have questions before agreeing</button>
+        <button class="opt-btn" onclick="pickAns('uk_plan', 'looks_good', this)">Looks great — verify the flights overnight and book</button>
+        <button class="opt-btn" onclick="pickAns('uk_plan', 'tweaks', this)">Mostly good — tweaks below</button>
         <button class="opt-btn" onclick="pickAns('uk_plan', 'phone_call', this)">Let's talk it through with Alex on the line</button>
       </div>
-      <textarea id="uk_text" placeholder="Tweaks, questions, or anything else…"></textarea>
+      <textarea id="uk_text" placeholder="Tweaks, questions, anything else…"></textarea>
     </div>
   </section>
 
-  <!-- === QUICK QUESTIONS === -->
+  <!-- === QUESTIONS === -->
   <section id="questions">
-    <h2>Quick questions for me</h2>
-    <p class="lede">Open items. Tap to answer or skip — your answers go straight to me when you hit Send at the bottom.</p>
+    <h2>Two quick questions for you</h2>
+    <p class="lede">These came up in your message. Tap your preference, optionally add a note.</p>
 
-    <!-- SMF → EWR -->
     <div class="qbox">
-      <div class="qlabel">SMF → Newark options</div>
-      <div class="qtext">Two ways to get from Sacramento to Newark on Jun 28 — which feels right?</div>
-      <p class="qhelp">Both arrive Newark with comfortable buffer before your evening UA 188 to Johannesburg. Trade-off below.</p>
+      <div class="qlabel">SMF return on Jul 30</div>
+      <div class="qtext">Lean toward A (Denver, earlier home) or B (San Francisco, later home)?</div>
+      <p class="qhelp">If price &amp; comfort are equivalent, which feels better? I'll verify both overnight regardless.</p>
       <div class="options-grid">
-        <button class="opt-btn" onclick="pickAns('smf_ewr', 'nonstop', this)"><strong>Nonstop SMF → EWR</strong> (~5h, no stop). Simplest.</button>
-        <button class="opt-btn" onclick="pickAns('smf_ewr', 'denver', this)"><strong>Via Denver</strong> (~6.5h with stop). More flight choices, sometimes cheaper.</button>
-        <button class="opt-btn" onclick="pickAns('smf_ewr', 'either', this)">Whichever is best for comfort &amp; reliability — you decide</button>
-      </div>
-      <textarea id="smf_text" placeholder="Any preference on early vs late departure?"></textarea>
-    </div>
-
-    <!-- Luggage -->
-    <div class="qbox">
-      <div class="qlabel">Inverness → London → Newark luggage</div>
-      <div class="qtext">If we book BA INV→LHR on the same ticket as UA LHR→EWR, can luggage through-check?</div>
-      <p class="qhelp">My honest answer: usually yes when on a single-ticket itinerary, but BA-to-UA at Heathrow has occasional snags. Safe answer = retrieve, take to the hotel, recheck next morning. I'll verify with both airlines and have the answer in the morning.</p>
-      <div class="options-grid">
-        <button class="opt-btn" onclick="pickAns('luggage', 'verify', this)">Please verify and tell me — I'll plan around your answer</button>
-        <button class="opt-btn" onclick="pickAns('luggage', 'safe_default', this)">Just plan for the safe option (retrieve + recheck) — easier mentally</button>
+        <button class="opt-btn" onclick="pickAns('return', 'a_denver', this)">A — Denver stop, home by 5:41 PM</button>
+        <button class="opt-btn" onclick="pickAns('return', 'b_sfo', this)">B — SFO stop, home by 7:35 PM</button>
+        <button class="opt-btn" onclick="pickAns('return', 'whichever', this)">Whichever you find better — your call</button>
       </div>
     </div>
 
-    <!-- Polaris vs hybrid -->
     <div class="qbox">
-      <div class="qlabel">UA cabin choice</div>
-      <div class="qtext">Polaris all four flights, or Polaris on the long flights only?</div>
-      <p class="qhelp">Newark↔Joburg is 14-15 hours. London is ~7. Polaris on Joburg is the comfort win; the London flights are short enough that Premium Plus is a defensible save.</p>
+      <div class="qlabel">LHR → Heathrow luggage transfer Jul 29 → 30</div>
+      <div class="qtext">If we book BA INV → LHR on the same ticket as UA LHR → EWR, can luggage through-check?</div>
+      <p class="qhelp">Usually yes on a single-ticket itinerary, but BA-to-UA at LHR has occasional snags. Safe option: retrieve, take to hotel, recheck next morning.</p>
       <div class="options-grid">
-        <button class="opt-btn" onclick="pickAns('cabin', 'all_polaris', this)">All-Polaris ($14,500 - $21,900). Maximum comfort, least decision fatigue.</button>
-        <button class="opt-btn" onclick="pickAns('cabin', 'hybrid', this)">Polaris JNB + Premium Plus LHR ($11,500 - $16,500). Saves $2-5K.</button>
-        <button class="opt-btn" onclick="pickAns('cabin', 'show_me_prices', this)">Show me actual prices first — then I'll decide</button>
+        <button class="opt-btn" onclick="pickAns('luggage', 'verify', this)">Verify with the airlines and tell me what they say</button>
+        <button class="opt-btn" onclick="pickAns('luggage', 'safe_default', this)">Just plan for the safe option (retrieve + recheck)</button>
       </div>
-      <textarea id="cabin_text" placeholder="Anything that would tip your decision either way?"></textarea>
     </div>
-
   </section>
 
   <!-- === SEND === -->
   <section id="send">
     <div class="send-section">
       <h2>Ready to send?</h2>
-      <p>One tap below opens your Outlook with everything you tapped or typed pre-filled. Just hit Send in Outlook. Your answers come straight to me and I'll act on them within an hour or two.</p>
+      <p>Your taps and notes go straight to me through Outlook. I'll act on them within an hour or two.</p>
       <button class="send-btn" onclick="sendIt()">Send my answers ✈️</button>
       <div class="voice-line">
         Or — <strong>send a voice memo to Alex at +1 (530) 219-8094</strong> instead. Half-thoughts and rambling are perfect.
@@ -895,15 +508,13 @@
   </section>
 
   <footer>
-    Updated <span id="updated">tonight</span>. This page is the most current source of truth.<br>
-    Anything on it can be changed — just tell me.<br><br>
+    Updated <span id="updated">tonight</span>. This page is the most current source of truth — anything on it can be changed.<br><br>
     — Claude Concierge
   </footer>
 
 </div>
 
 <script>
-  // === Days countdown ===
   function updateCountdown() {
     const target = new Date('2026-06-28T00:00:00-07:00');
     const now = new Date();
@@ -912,69 +523,36 @@
   }
   updateCountdown();
 
-  // === State for answers ===
   const state = {
     insurance: null, ins_text: '',
     uk_plan: null, uk_text: '',
-    smf_ewr: null, smf_text: '',
+    return: null,
     luggage: null,
-    cabin: null, cabin_text: '',
     anne_4th: ''
   };
 
-  // === Single-select option buttons ===
   function pickAns(category, value, btn) {
-    // Find the parent qbox
     const qbox = btn.closest('.qbox');
     qbox.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     state[category] = value;
   }
 
-  // === Insurance card click (informational, not a "pick" — picks happen in qbox) ===
   function pickIns(card) {
-    // Just visual emphasis — actual pick happens in the qbox below
     document.querySelectorAll('.ins-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
   }
 
-  // === Compose the email body ===
   function composeBody() {
-    // Sync text fields
     state.ins_text = document.getElementById('ins_text').value;
     state.uk_text = document.getElementById('uk_text').value;
-    state.smf_text = document.getElementById('smf_text').value;
-    state.cabin_text = document.getElementById('cabin_text').value;
     state.anne_4th = document.getElementById('anne4th').value;
 
     const labels = {
-      insurance: {
-        img_se: 'IMG iTravelInsured SE + Medjet (~$1,820)',
-        travel_guard: 'Travel Guard Preferred + Medjet (~$1,330)',
-        allianz: 'Allianz OneTrip Premier + Medjet (~$1,185)',
-        wait_anne: 'Wait for Anne 4th option',
-        phone_call: 'Phone call with Alex'
-      },
-      uk_plan: {
-        looks_good: 'Looks great — book it',
-        tweaks: 'Mostly good, tweaks needed',
-        questions: 'I have questions first',
-        phone_call: 'Phone call with Alex'
-      },
-      smf_ewr: {
-        nonstop: 'Nonstop SMF → EWR',
-        denver: 'Via Denver',
-        either: 'Whichever is best — you decide'
-      },
-      luggage: {
-        verify: 'Please verify with airlines',
-        safe_default: 'Plan for retrieve + recheck'
-      },
-      cabin: {
-        all_polaris: 'All-Polaris',
-        hybrid: 'Polaris JNB + Premium Plus LHR',
-        show_me_prices: 'Show actual prices first'
-      }
+      insurance: { img_se: 'IMG iTravelInsured SE + Medjet (~$1,820)', travel_guard: 'Travel Guard Preferred + Medjet (~$1,330)', allianz: 'Allianz OneTrip Premier + Medjet (~$1,185)', wait_anne: 'Wait for Anne 4th option', phone_call: 'Phone call with Alex' },
+      uk_plan: { looks_good: 'Looks great — verify and book', tweaks: 'Tweaks needed', phone_call: 'Phone call with Alex' },
+      return: { a_denver: 'A — Denver stop', b_sfo: 'B — SFO stop', whichever: 'Whichever you find better' },
+      luggage: { verify: 'Verify with airlines', safe_default: 'Plan for retrieve + recheck' }
     };
     const lbl = (cat, val) => val ? (labels[cat][val] || val) : '(not answered)';
 
@@ -990,16 +568,11 @@
       "Verdict: " + lbl('uk_plan', state.uk_plan),
       state.uk_text ? "Notes: " + state.uk_text : "",
       "",
-      "── SMF → EWR ──",
-      "Pick: " + lbl('smf_ewr', state.smf_ewr),
-      state.smf_text ? "Notes: " + state.smf_text : "",
+      "── SMF RETURN (Jul 30) ──",
+      "Pick: " + lbl('return', state.return),
       "",
       "── LUGGAGE QUESTION ──",
       "Pick: " + lbl('luggage', state.luggage),
-      "",
-      "── UA CABIN ──",
-      "Pick: " + lbl('cabin', state.cabin),
-      state.cabin_text ? "Notes: " + state.cabin_text : "",
       "",
       "— Pat",
       "(sent from the trip dashboard)"
@@ -1012,7 +585,6 @@
     window.location.href = "mailto:amarkham@alumni.gsb.stanford.edu?subject=" + subject + "&body=" + body;
   }
 
-  // === Last-updated label ===
   const updated = new Date();
   const opts = { weekday: 'long', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' };
   document.getElementById('updated').textContent = updated.toLocaleDateString('en-US', opts) + ' PT';
